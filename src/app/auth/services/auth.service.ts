@@ -25,7 +25,7 @@ export class AuthService {
         tap( user => localStorage.setItem('token',user.id.toString()) ),
       )
   }
-  checkAuthentication(): Observable<Boolean>{            //Obervable que emite un valor booleano o un booleano :: Observable<Boolean> | boolean
+  checkAuthentication(): Observable<boolean>{            //Obervable que emite un valor booleano o un booleano :: Observable<Boolean> | boolean
     if(!localStorage.getItem('token')) return of(false);
     const token = localStorage.getItem('token');
     return this.http.get<User>(`${this.baseUrl}/users/1`)
